@@ -9,6 +9,13 @@ public class AppTest {
 
 
     LinkedList testLinkedTest = new LinkedList();
+    LinkedList test2 = new LinkedList();
+    @Test
+    void emptyLinkedList(){
+      assertNull(this.testLinkedTest.head);
+    }
+
+
 
     @Test
   void testInsertMethod(){
@@ -17,9 +24,25 @@ public class AppTest {
       testLinkedTest.insert(3);
       assertEquals(this.testLinkedTest.head.value, 3);
     }
+  @Test
+  void headPointer(){
+    assertTrue(this.testLinkedTest.head.value == "3");
+  }
+  @Test
+  void insertMultiple(){
+      int size =0;
+      for(int i = 0; i < 3; i++){
+         test2.insert(i);
+         size++;
+      }
+      assertTrue(size == 2);
+
+  }
+
 
     @Test
   void testIncludeMethod(){
+      assertTrue(testLinkedTest.includes(3), "Node is found");
       assertFalse(testLinkedTest.includes(5), "Node not found");
     }
     @Test
