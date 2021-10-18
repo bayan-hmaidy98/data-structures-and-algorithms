@@ -1,8 +1,10 @@
+package java.code_challenge03;
+
 import java.util.Arrays;
 
 import static java.lang.Math.floor;
 
-public class Main {
+public class App {
 
   public static void main(String[] args){
     System.out.println(binarySearch(new int[] {2,5,9,11},5));

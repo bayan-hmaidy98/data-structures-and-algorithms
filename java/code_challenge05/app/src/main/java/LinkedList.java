@@ -1,7 +1,9 @@
 package java.code_challenge05.app.src.main.java;
 
-public class LinkedList <T> {
+import java.util.Objects;
 
+public class LinkedList <T> {
+int size =0;
   public Node head;
 
   // insert at the beginning, it would work even it's empty because the head next is null by default
@@ -21,6 +23,64 @@ public class LinkedList <T> {
     }
     return false;
   }
+
+  public void append(String value) {
+    Node newNode = new Node(value);
+
+    if (size == 0) {
+      head = newNode;
+    } else {
+
+      Node current = head;
+      while (current.getNext() != null) {
+        current = current.getNext();
+      }
+      current.setNext(newNode);
+
+    }
+    size++;
+  }
+
+
+  public void insertBefore(String value, String newValue) {
+
+    if (includes((T) value)) {
+      Node newNode = new Node(newValue);
+      Node current = head;
+      Node previous = head;
+      while (!Objects.equals(previous.getNext().getData(), value)) {
+        previous = previous.getNext();
+      }
+      current = previous.getNext();
+      previous.setNext(newNode);
+      newNode.setNext(current);
+      size++;
+
+    }
+
+
+  }
+
+
+  public void insertAfter(String value, String newValue) {
+
+    if (includes((T) value)) {
+      Node newNode = new Node(newValue);
+      Node current = head;
+      Node previous = head;
+      while (!Objects.equals(previous.getData(), value)) {
+        previous = previous.getNext();
+      }
+      current = previous.getNext();
+      previous.setNext(newNode);
+      newNode.setNext(current);
+      size++;
+
+    }
+
+
+  }
+
 
   @Override
   public String toString() {
