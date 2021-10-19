@@ -5,6 +5,7 @@ import java.util.Objects;
 public class LinkedList <T> {
 int size =0;
   public Node head;
+  int counter =0;
 
   // insert at the beginning, it would work even it's empty because the head next is null by default
   public void insert(T value){
@@ -31,11 +32,11 @@ int size =0;
       head = newNode;
     } else {
 
-      Node current = head;
-      while (current.getNext() != null) {
-        current = current.getNext();
+      Node currentNode = head;
+      while (currentNode.getNext() != null) {
+        currentNode = currentNode.getNext();
       }
-      current.setNext(newNode);
+      currentNode.setNext(newNode);
 
     }
     size++;
@@ -46,12 +47,12 @@ int size =0;
 
     if (includes((T) value)) {
       Node newNode = new Node(newValue);
-      Node current = head;
+      Node currentNode = head;
       Node previous = head;
       while (!Objects.equals(previous.getNext().getData(), value)) {
         previous = previous.getNext();
       }
-      current = previous.getNext();
+      currentNode = previous.getNext();
       previous.setNext(newNode);
       newNode.setNext(current);
       size++;
@@ -66,21 +67,19 @@ int size =0;
 
     if (includes((T) value)) {
       Node newNode = new Node(newValue);
-      Node current = head;
+      Node currentNode = head;
       Node previous = head;
       while (!Objects.equals(previous.getData(), value)) {
         previous = previous.getNext();
       }
-      current = previous.getNext();
+      currentNode = previous.getNext();
       previous.setNext(newNode);
-      newNode.setNext(current);
+      newNode.setNext(currentNode);
       size++;
 
     }
 
-
   }
-
 
   @Override
   public String toString() {
@@ -92,5 +91,27 @@ int size =0;
     }
     output+= "Null";
     return output;
+  }
+
+  publi int kth(int k) throws NotValidIndex{
+
+    if (counter == 0){
+
+      ArrayList<int> arrayConverted = new ArrayList()<>;
+      Node currentNode = head;
+      while (currentNode != null){
+        arrayConverted[i] = currentNode.value;
+        currentNode = currentNode.nextReference;
+      }
+      int index = arrayConverted.size() - k -1;
+      if (index < 0){
+        throw new NotValidIndex(){
+          "Not valid index" + k;
+        }
+        else {
+          return arrayConverted[index];
+        }
+      }
+    }
   }
 }
