@@ -95,6 +95,34 @@ public class AppTest {
   }
 
   @Test
+  void zippingLinkedListTest() {
+
+    LinkedList list1 = new LinkedList();
+    list1.append("Bayan");
+    list1.append("Emad");
+    list1.append("Hmaidy");
+
+    LinkedList list2 = new LinkedList();
+    list2.append("Noor");
+    list2.append("Omar");
+    list2.append("Bash");
+
+
+      String testingString = LinkedList.zipLists(list1,list2).toString();
+
+      assertEquals("{ Bayan } -> { Noor } -> { Emad } -> { Omar } -> { Hmaidy } -> { Bash } -> NULL",testingString);
+      assertEquals(list1.toString(),testingString2);
+
+
+
+
+
+    assertThrows(Exception.class, ()->LinkedList.zipLists(list3,list4));
+
+
+  }
+
+  @Test
   void testToStringMethod(){
       assertTrue(testLinkedTest.toString() == "{ 3 } -> { 2 } -> { 1 } -> NULL");
     }
