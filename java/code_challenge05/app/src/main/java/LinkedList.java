@@ -3,9 +3,9 @@ package java.code_challenge05.app.src.main.java;
 import java.util.Objects;
 
 public class LinkedList <T> {
-int size =0;
+
   public Node head;
-  int counter =0;
+
 
 
   public void insert(T value){
@@ -33,56 +33,55 @@ int size =0;
   public void append(String value) {
     Node newNode = new Node(value);
 
-    if (size == 0) {
+    if (head == null) {
       head = newNode;
     } else {
 
-      Node currentNode = head;
-      while (currentNode.getNext() != null) {
-        currentNode = currentNode.getNext();
+      Node current = head;
+      while (current.getNext() != null) {
+        current = current.getNext();
       }
-      currentNode.setNext(newNode);
+      current.setNext(newNode);
 
     }
-    size++;
+
   }
 
 
   public void insertBefore(String value, String newValue) {
 
-    if (includes((T) value)) {
-      Node newNode = new Node(newValue);
-      Node currentNode = head;
-      Node previous = head;
-      while (!Objects.equals(previous.getNext().getData(), value)) {
-        previous = previous.getNext();
+    Node current = head;
+    while (current.getNext() != null){
+      if(current.getNext().equals(value)){
+        Node newNode = new Node(newValue);
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+        break;
       }
-      currentNode = previous.getNext();
-      previous.setNext(newNode);
-      newNode.setNext(current);
-      size++;
-
+      else {
+        current.getNext();
+      }
     }
-
+    System.out.println("Can't find the value to insert before it.");
 
   }
 
 
   public void insertAfter(String value, String newValue) {
 
-    if (includes((T) value)) {
-      Node newNode = new Node(newValue);
-      Node currentNode = head;
-      Node previous = head;
-      while (!Objects.equals(previous.getData(), value)) {
-        previous = previous.getNext();
+    Node current = head;
+    while (current.getNext() != null){
+      if(current.equals(value)){
+        Node newNode = new Node(newValue);
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+        break;
       }
-      currentNode = previous.getNext();
-      previous.setNext(newNode);
-      newNode.setNext(currentNode);
-      size++;
-
+      else {
+        current.getNext();
+      }
     }
+    System.out.println("Can't find the value to insert after it.");
 
   }
 
@@ -98,71 +97,4 @@ int size =0;
     return output;
   }
 
-  publi int kth(int k) throws NotValidIndex{
-
-    if (counter == 0){
-
-      ArrayList<int> arrayConverted = new ArrayList()<>;
-      Node currentNode = head;
-      while (currentNode != null){
-        arrayConverted[i] = currentNode.value;
-        currentNode = currentNode.nextReference;
-      }
-      int index = arrayConverted.size() - k -1;
-      if (index < 0){
-        throw new NotValidIndex(){
-          "Not valid index" + k;
-        }
-        else {
-          return arrayConverted[index];
-        }
-      }
-    }
-  }
-
-  public Node getHead() {
-    return head;
-  }
-
-  public static LinkedList zipLists(LinkedList list1, LinkedList list2) throws Exception {
-
-    if (list1.size() == 0 && list2.size() == 0) {
-      throw new Exception("Your Lists are empty");
-    } else if (list2.size() == 0) {
-      return list1;
-    } else if (list1.size() == 0) {
-      return list2;
-    } else {
-
-      Node c1 = list1.getHead();
-      Node c2 = list2.getHead();
-      Node t1, t2;
-
-
-      while (c1.getNext() != null && c2 != null) {
-
-        t1 = c1.getNext();
-        t2 = c2.getNext();
-
-        c1.setNext(c2);
-        c2.setNext(t1);
-
-        c1 = t1;
-        c2 = t2;
-
-        list1.size ++;
-
-        if (c1.getNext() == null) {
-          c1.setNext(c2);
-          break;
-        }
-
-      }
-
-      return list1;
-
-    }
-
-
-  }
 }

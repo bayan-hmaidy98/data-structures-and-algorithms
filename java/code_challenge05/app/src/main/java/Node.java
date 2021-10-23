@@ -6,24 +6,17 @@ import java.awt.color.ICC_Profile;
 public class Node <T>{
   Node <T> next;
   public T value;
-  private String data;
+
 
   public Node(T value){
     this.value = value;
   }
 
   public Node getNext() {
-    return nextReference;
+    return next;
   }
 
   public void setNext(Node next) {
-    this.nextReference = next;
-  }
-  public String getData() {
-    return data;
+    this.next = next;
   }
 
-  public void setData(String data) {
-    this.data = data;
-  }
-}
