@@ -4,7 +4,7 @@ package java.code_challenge05.app.src.main.java;
 import java.awt.color.ICC_Profile;
 
 public class Node <T>{
-  Node <T> nextReference;
+  Node <T> next;
   public T value;
   private String data;
 

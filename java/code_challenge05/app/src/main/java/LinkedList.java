@@ -7,20 +7,25 @@ int size =0;
   public Node head;
   int counter =0;
 
-  // insert at the beginning, it would work even it's empty because the head next is null by default
+
   public void insert(T value){
     Node first = new Node(value);
-    first.nextReference = head;
-    head = first;
+    if (head == null){
+      head = first;
+    }
+    else{
+      first.next = head;
+      head = first;
+    }
   }
 
   public boolean includes(T value){
-    Node <T> currentNode = head;
-    while(currentNode != null){
-      if(currentNode.value.equals(value)){
+    Node current = head;
+    while(current != null){
+      if(current.value.equals(value)){
         return true;
       }
-      currentNode = currentNode.nextReference;
+      current = current.next;
     }
     return false;
   }
@@ -83,11 +88,11 @@ int size =0;
 
   @Override
   public String toString() {
-    Node currentNode = head;
+    Node current = head;
     String output = "";
-    while (currentNode.nextReference != null){
-      output+= "{ " + currentNode + " }" + " -> ";
-      currentNode = currentNode.nextReference;
+    while (current.next != null){
+      output+= "{ " + current + " }" + " -> ";
+      currentNode = current.next;
     }
     output+= "Null";
     return output;
