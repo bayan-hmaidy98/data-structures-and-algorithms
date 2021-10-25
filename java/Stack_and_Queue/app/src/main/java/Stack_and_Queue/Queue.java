@@ -1,9 +1,9 @@
-package Stack_and_Queue.app.src.main.java.Stack_and_Queue;
+package Stack_and_Queue;
 
 public class Queue <T>{
 
-  Node front;
-  Node back;
+  public Node front;
+  public Node back;
 
   public void enQueue(T value){
     if (front == null){

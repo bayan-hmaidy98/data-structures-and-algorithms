@@ -1,8 +1,10 @@
 package java.code_challenge05.app.src.main.java;
 
+import java.util.LinkedList;
+
 public class App {
   public static void main(String[] args) {
-    LinkedList <Integer> linkedList = new LinkedList<>();
+    LinkedList<Integer> linkedList = new LinkedList<>();
     linkedList.insert(5);
     linkedList.insert(20);
     System.out.println(linkedList.toString());
