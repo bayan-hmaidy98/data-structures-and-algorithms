@@ -1,4 +1,4 @@
-package Stack_and_Queue.app.src.main.java.Stack_and_Queue;
+package Stack_and_Queue;
 
 public class Node <T> {
 

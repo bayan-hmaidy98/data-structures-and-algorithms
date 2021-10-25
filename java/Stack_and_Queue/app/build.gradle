@@ -22,6 +22,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
+
 }
 
 application {
@@ -29,7 +30,10 @@ application {
     mainClass = 'Stack_and_Queue.App'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+//tasks.named('test') {
+//    Use JUnit Platform for unit tests.
+//    useJUnitPlatform()
+//}
+test {
+  useJUnitPlatform()
 }
